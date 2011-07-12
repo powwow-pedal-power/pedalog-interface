@@ -1,0 +1,5 @@
+TODO
+----
+
+- Fix graph corruption under Mono
+- Fix graph control size under Mono

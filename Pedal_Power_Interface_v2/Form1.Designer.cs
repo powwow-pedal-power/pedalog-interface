@@ -63,7 +63,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtest = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.zgc1 = new ZedGraph.ZedGraphControl();
             this.panel5 = new System.Windows.Forms.Panel();
             this.W_max_lbl = new System.Windows.Forms.Label();
@@ -84,7 +83,9 @@
             this.W_lbl = new System.Windows.Forms.Label();
             this.txPOWER = new System.Windows.Forms.Label();
             this.Power_lbl = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Error_lbl = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -417,16 +418,6 @@
             this.tabPage1.Text = "PEDAL POWER";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(420, 458);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(476, 88);
-            this.button1.TabIndex = 21;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // zgc1
             // 
             this.zgc1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -439,7 +430,7 @@
             this.zgc1.ScrollMinX = 0D;
             this.zgc1.ScrollMinY = 0D;
             this.zgc1.ScrollMinY2 = 0D;
-            this.zgc1.Size = new System.Drawing.Size(589, 392);
+            this.zgc1.Size = new System.Drawing.Size(589, 311);
             this.zgc1.TabIndex = 35;
             // 
             // panel5
@@ -634,6 +625,16 @@
             this.Power_lbl.Text = "POWER:";
             this.Power_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(420, 458);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(476, 88);
+            this.button1.TabIndex = 21;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // tabControl1
             // 
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
@@ -647,11 +648,21 @@
             this.tabControl1.Size = new System.Drawing.Size(940, 446);
             this.tabControl1.TabIndex = 18;
             // 
+            // Error_lbl
+            // 
+            this.Error_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Error_lbl.ForeColor = System.Drawing.Color.Red;
+            this.Error_lbl.Location = new System.Drawing.Point(10, 494);
+            this.Error_lbl.Name = "Error_lbl";
+            this.Error_lbl.Size = new System.Drawing.Size(404, 52);
+            this.Error_lbl.TabIndex = 22;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(958, 556);
+            this.Controls.Add(this.Error_lbl);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.LED1);
@@ -738,6 +749,7 @@
         private System.Windows.Forms.Label Power_lbl;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label Error_lbl;
     }
 }
 
