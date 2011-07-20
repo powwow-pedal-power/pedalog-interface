@@ -65,6 +65,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>ISO-2</LangVersion>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -84,7 +85,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\zedgraph_dll_v515\zedgraph_dll_v5.1.5\ZedGraph.dll</HintPath>
     </Reference>
-    <Reference Include="Pwpp.Pedalog, Version=0.1.4210.26635, Culture=en-GB, PublicKeyToken=null">
+    <Reference Include="Pwpp.Pedalog, Version=0.1.4218.26238, Culture=neutral, PublicKeyToken=null">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\libpedalog-mono\Pwpp.Pedalog.dll</HintPath>
     </Reference>
@@ -111,7 +112,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -122,6 +122,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Pwpp.Pedalog.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Pedal_Power_Interface_v4_TemporaryKey.pfx" />
