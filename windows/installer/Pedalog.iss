@@ -75,17 +75,17 @@ Source: "..\..\Pedal_Power_Interface_v2\bin\Debug\ru\*"; DestDir: "{app}\ru"
 Source: "..\..\Pedal_Power_Interface_v2\bin\Debug\sk\*"; DestDir: "{app}\sk"
 Source: "..\..\Pedal_Power_Interface_v2\bin\Debug\sv\*"; DestDir: "{app}\sv"
 Source: "..\..\Pedal_Power_Interface_v2\bin\Debug\tr\*"; DestDir: "{app}\tr"
-Source: "..\..\Pedal_Power_Interface_v2\bin\Debug\zh-ch\*"; DestDir: "{app}\zh-ch"
+Source: "..\..\Pedal_Power_Interface_v2\bin\Debug\zh-cn\*"; DestDir: "{app}\zh-cn"
 Source: "..\..\Pedal_Power_Interface_v2\bin\Debug\zh-tw\*"; DestDir: "{app}\zh-tw"
 
 ; copy your libusb-win32 setup package to the App folder
-Source: "driver\*"; Excludes: "*.exe"; Flags: recursesubdirs; DestDir: "{app}\driver"
+Source: "..\driver\*"; Excludes: "*.exe"; Flags: recursesubdirs; DestDir: "{app}\driver"
 
 ; also copy the native (32bit or 64 bit) libusb0.dll to the 
 ; system folder so that rundll32.exe will find it
-Source: "driver\x86\libusb0_x86.dll"; DestName: "libusb0.dll"; DestDir: "{sys}"; Flags: uninsneveruninstall replacesameversion restartreplace promptifolder; Check: IsX86;
-Source: "driver\amd64\libusb0.dll"; DestDir: "{sys}"; Flags: uninsneveruninstall replacesameversion restartreplace promptifolder; Check: IsX64;
-Source: "driver\ia64\libusb0.dll"; DestDir: {sys}; Flags: uninsneveruninstall replacesameversion restartreplace promptifolder; Check: IsI64;
+Source: "..\driver\x86\libusb0_x86.dll"; DestName: "libusb0.dll"; DestDir: "{sys}"; Flags: uninsneveruninstall replacesameversion restartreplace promptifolder; Check: IsX86;
+Source: "..\driver\amd64\libusb0.dll"; DestDir: "{sys}"; Flags: uninsneveruninstall replacesameversion restartreplace promptifolder; Check: IsX64;
+Source: "..\driver\ia64\libusb0.dll"; DestDir: {sys}; Flags: uninsneveruninstall replacesameversion restartreplace promptifolder; Check: IsI64;
 
 [Icons]
 Name: "{group}\Pedalog Interface"; Filename: "{app}\Pedalog_Interface.exe"; WorkingDir: "{app}"
