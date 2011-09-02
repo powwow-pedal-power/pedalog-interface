@@ -1,0 +1,34 @@
+pedalog-interface
+-----------------
+
+This software uses the libpedalog-mono library to communicate with Pedalog devices.
+
+libpedalog-mono in turn relies on the libpedalog C library being available. A binary version
+is included for Windows - on Linux, it should be installed system-wide as described below.
+
+How to build on Windows:
+
+1) Build the solution in Debug mode in Visual Studio (Express Edition is fine)
+2) Download the free Inno Setup utility (http://www.jrsoftware.org/isdl.php)
+3) Open the windows\installer\Pedalog.iss file, and compile it in Inno Setup
+4) A setup.exe installer should be created in windows\installer\Output - this will install
+   both the Pedalog interface and the USB drivers necessary to use it in Windows. Once
+   the drivers have been installed, the software can be run directly from within Visual
+   Studio.
+
+How to build on Linux:
+
+1) Add the following lines to /etc/apt/sources.list:
+
+   deb http://ppa.launchpad.net/powwow-pedal-power/pedalog/ubuntu maverick main
+   deb-src http://ppa.launchpad.net/powwow-pedal-power/pedalog/ubuntu maverick main
+
+2) Install the necessary dependencies:
+
+   sudo apt-get install libpedalog0
+
+3) The easiest way to build the software is MonoDevelop::
+
+   sudo apt-get install monodevelop
+
+4) Open the .sln file in MonoDevelop, build and run
