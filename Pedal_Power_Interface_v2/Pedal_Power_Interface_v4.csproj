@@ -85,7 +85,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\zedgraph_dll_v515\zedgraph_dll_v5.1.5\ZedGraph.dll</HintPath>
     </Reference>
-    <Reference Include="Pwpp.Pedalog, Version=0.1.4218.26238, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="Pwpp.Pedalog, Version=0.1.4218.26934, Culture=neutral, PublicKeyToken=null">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\libpedalog-mono\Pwpp.Pedalog.dll</HintPath>
     </Reference>
@@ -123,6 +123,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Pwpp.Pedalog.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="pedalog-interface">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

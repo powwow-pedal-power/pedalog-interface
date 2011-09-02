@@ -3,3 +3,25 @@ pedalog-interface
 
 Interface software by Renewable Energy Innovation for the Pedalog pedal power monitoring device:
 http://www.re-innovation.co.uk/index.php
+
+This software should work on any platform for which Mono is available, and libpedalog can be compiled -
+although only Debian and Windows have been tested so far.
+
+Debian/Ubuntu
+-------------
+
+libpedalog needs to be installed before this program will run. It can be installed using the following
+steps:
+
+1) Add the following lines to /etc/apt/sources.list:
+
+deb http://ppa.launchpad.net/powwow-pedal-power/pedalog/ubuntu maverick main 
+deb-src http://ppa.launchpad.net/powwow-pedal-power/pedalog/ubuntu maverick main
+
+2) Install dependencies:
+
+sudo apt-get install mono libpedalog
+
+3) Run program!
+
+mono
