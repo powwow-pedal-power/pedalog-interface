@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pedal_Power_Interface_v4", "Pedal_Power_Interface_v2\Pedal_Power_Interface_v4.csproj", "{E7C9CEAF-CEC4-499B-980C-078DB6D830AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pedalog-interface", "Pedal_Power_Interface_v2\pedalog-interface.csproj", "{E7C9CEAF-CEC4-499B-980C-078DB6D830AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,7 +15,7 @@ Global
 		{E7C9CEAF-CEC4-499B-980C-078DB6D830AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Pedal_Power_Interface_v2\Pedal_Power_Interface_v4.csproj
+		StartupItem = Pedal_Power_Interface_v2\pedalog-interface.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
