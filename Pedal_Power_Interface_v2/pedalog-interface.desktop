@@ -9,3 +9,4 @@ Terminal=false
 Comment=Interface software for the Pedalog power monitoring device
 GenericName=pedalog-interface
 Categories=Education;
+Icon=pedalog-interface

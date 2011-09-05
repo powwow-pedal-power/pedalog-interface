@@ -13,6 +13,7 @@ PROJECT_REFERENCES =
 BUILD_DIR = bin/Debug/
 
 PEDALOG_INTERFACE_DESKTOP_SOURCE=pedalog-interface.desktop
+PEDALOG_INTERFACE_PNG_SOURCE=icon.png
 PWPP_PEDALOG_DLL_CONFIG_SOURCE=Pwpp.Pedalog.dll.config
 LIBPEDALOG_DLL_SOURCE=libpedalog.dll
 ZEDGRAPH_DLL_SOURCE=../Assemblies/zedgraph_dll_v515/zedgraph_dll_v5.1.5/ZedGraph.dll
@@ -32,6 +33,7 @@ PROJECT_REFERENCES =
 BUILD_DIR = bin/Release/
 
 PEDALOG_INTERFACE_DESKTOP_SOURCE=pedalog-interface.desktop
+PEDALOG_INTERFACE_PNG_SOURCE=icon.png
 PWPP_PEDALOG_DLL_CONFIG_SOURCE=Pwpp.Pedalog.dll.config
 LIBPEDALOG_DLL_SOURCE=libpedalog.dll
 ZEDGRAPH_DLL_SOURCE=../Assemblies/zedgraph_dll_v515/zedgraph_dll_v5.1.5/ZedGraph.dll
@@ -46,6 +48,9 @@ SATELLITE_ASSEMBLY_NAME=$(notdir $(basename $(ASSEMBLY))).resources.dll
 LINUX_DESKTOPAPPLICATIONS = \
 	$(PEDALOG_INTERFACE_DESKTOP)  
 
+COMMONAPPLICATIONDATAROOT_PIXMAPS = \
+	$(PEDALOG_INTERFACE_PNG)  
+
 PROGRAMFILES = \
 	$(PWPP_PEDALOG_DLL_CONFIG) \
 	$(LIBPEDALOG_DLL) \
@@ -59,7 +64,7 @@ BINARIES = \
 
 RESGEN=resgen2
 	
-all: $(ASSEMBLY) $(LINUX_DESKTOPAPPLICATIONS) $(PROGRAMFILES) $(BINARIES) 
+all: $(ASSEMBLY) $(LINUX_DESKTOPAPPLICATIONS) $(COMMONAPPLICATIONDATAROOT_PIXMAPS) $(PROGRAMFILES) $(BINARIES) 
 
 FILES = \
 	Form1.cs \
@@ -83,6 +88,7 @@ EXTRAS = \
 	Resources \
 	libpedalog.dll \
 	pedalog-interface.desktop \
+	icon.png \
 	pedalog-interface.in 
 
 REFERENCES =  \
@@ -95,11 +101,12 @@ DLL_REFERENCES =  \
 	../Assemblies/zedgraph_dll_v515/zedgraph_dll_v5.1.5/ZedGraph.dll \
 	../Assemblies/libpedalog-mono/Pwpp.Pedalog.dll
 
-CLEANFILES = $(LINUX_DESKTOPAPPLICATIONS) $(PROGRAMFILES) $(BINARIES) 
+CLEANFILES = $(LINUX_DESKTOPAPPLICATIONS) $(COMMONAPPLICATIONDATAROOT_PIXMAPS) $(PROGRAMFILES) $(BINARIES) 
 
 include $(top_srcdir)/Makefile.include
 
 PEDALOG_INTERFACE_DESKTOP = $(BUILD_DIR)/pedalog-interface.desktop
+PEDALOG_INTERFACE_PNG = $(BUILD_DIR)/pixmaps/pedalog-interface.png
 PWPP_PEDALOG_DLL_CONFIG = $(BUILD_DIR)/Pwpp.Pedalog.dll.config
 LIBPEDALOG_DLL = $(BUILD_DIR)/libpedalog.dll
 ZEDGRAPH_DLL = $(BUILD_DIR)/ZedGraph.dll
@@ -107,6 +114,7 @@ PWPP_PEDALOG_DLL = $(BUILD_DIR)/Pwpp.Pedalog.dll
 PEDALOG_INTERFACE = $(BUILD_DIR)/pedalog-interface
 
 $(eval $(call emit-deploy-target,PEDALOG_INTERFACE_DESKTOP))
+$(eval $(call emit-deploy-target,PEDALOG_INTERFACE_PNG))
 $(eval $(call emit-deploy-target,PWPP_PEDALOG_DLL_CONFIG))
 $(eval $(call emit-deploy-target,LIBPEDALOG_DLL))
 $(eval $(call emit-deploy-target,ZEDGRAPH_DLL))

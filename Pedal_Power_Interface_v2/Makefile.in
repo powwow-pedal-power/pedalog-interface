@@ -66,12 +66,14 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkglibdir)" \
+	"$(DESTDIR)$(commonapplicationdatarootpixmapsdir)" \
 	"$(DESTDIR)$(linuxdesktopapplicationsdir)" \
 	"$(DESTDIR)$(programfilesdir)"
 SCRIPTS = $(bin_SCRIPTS) $(pkglib_SCRIPTS)
 SOURCES =
 DIST_SOURCES =
-DATA = $(linuxdesktopapplications_DATA) $(programfiles_DATA)
+DATA = $(commonapplicationdatarootpixmaps_DATA) \
+	$(linuxdesktopapplications_DATA) $(programfiles_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
@@ -172,6 +174,8 @@ EXTRA_DIST = $(build_sources) $(build_resx_files) \
 @ENABLE_RELEASE_TRUE@BUILD_DIR = bin/Release/
 @ENABLE_DEBUG_TRUE@PEDALOG_INTERFACE_DESKTOP_SOURCE = pedalog-interface.desktop
 @ENABLE_RELEASE_TRUE@PEDALOG_INTERFACE_DESKTOP_SOURCE = pedalog-interface.desktop
+@ENABLE_DEBUG_TRUE@PEDALOG_INTERFACE_PNG_SOURCE = icon.png
+@ENABLE_RELEASE_TRUE@PEDALOG_INTERFACE_PNG_SOURCE = icon.png
 @ENABLE_DEBUG_TRUE@PWPP_PEDALOG_DLL_CONFIG_SOURCE = Pwpp.Pedalog.dll.config
 @ENABLE_RELEASE_TRUE@PWPP_PEDALOG_DLL_CONFIG_SOURCE = Pwpp.Pedalog.dll.config
 @ENABLE_DEBUG_TRUE@LIBPEDALOG_DLL_SOURCE = libpedalog.dll
@@ -187,6 +191,9 @@ AL = al2
 SATELLITE_ASSEMBLY_NAME = $(notdir $(basename $(ASSEMBLY))).resources.dll
 LINUX_DESKTOPAPPLICATIONS = \
 	$(PEDALOG_INTERFACE_DESKTOP)  
+
+COMMONAPPLICATIONDATAROOT_PIXMAPS = \
+	$(PEDALOG_INTERFACE_PNG)  
 
 PROGRAMFILES = \
 	$(PWPP_PEDALOG_DLL_CONFIG) \
@@ -220,6 +227,7 @@ EXTRAS = \
 	Resources \
 	libpedalog.dll \
 	pedalog-interface.desktop \
+	icon.png \
 	pedalog-interface.in 
 
 REFERENCES = \
@@ -232,8 +240,9 @@ DLL_REFERENCES = \
 	../Assemblies/zedgraph_dll_v515/zedgraph_dll_v5.1.5/ZedGraph.dll \
 	../Assemblies/libpedalog-mono/Pwpp.Pedalog.dll
 
-CLEANFILES = $(LINUX_DESKTOPAPPLICATIONS) $(PROGRAMFILES) $(BINARIES) \
-	$(ASSEMBLY) $(ASSEMBLY).mdb $(BINARIES) \
+CLEANFILES = $(LINUX_DESKTOPAPPLICATIONS) \
+	$(COMMONAPPLICATIONDATAROOT_PIXMAPS) $(PROGRAMFILES) \
+	$(BINARIES) $(ASSEMBLY) $(ASSEMBLY).mdb $(BINARIES) \
 	$(build_resx_resources) $(build_satellite_assembly_list)
 VALID_CULTURES = ar bg ca zh-CHS cs da de el en es fi fr he hu is it ja ko nl no pl pt ro ru hr sk sq sv th tr id uk be sl et lv lt fa vi hy eu mk af ka fo hi sw gu ta te kn mr gl kok ar-SA bg-BG ca-ES zh-TW cs-CZ da-DK de-DE el-GR en-US fi-FI fr-FR he-IL hu-HU is-IS it-IT ja-JP ko-KR nl-NL nb-NO pl-PL pt-BR ro-RO ru-RU hr-HR sk-SK sq-AL sv-SE th-TH tr-TR id-ID uk-UA be-BY sl-SI et-EE lv-LV lt-LT fa-IR vi-VN hy-AM eu-ES mk-MK af-ZA ka-GE fo-FO hi-IN sw-KE gu-IN ta-IN te-IN kn-IN mr-IN gl-ES kok-IN ar-IQ zh-CN de-CH en-GB es-MX fr-BE it-CH nl-BE nn-NO pt-PT sv-FI ar-EG zh-HK de-AT en-AU es-ES fr-CA ar-LY zh-SG de-LU en-CA es-GT fr-CH ar-DZ zh-MO en-NZ es-CR fr-LU ar-MA en-IE es-PA ar-TN en-ZA es-DO ar-OM es-VE ar-YE es-CO ar-SY es-PE ar-JO en-TT es-AR ar-LB en-ZW es-EC ar-KW en-PH es-CL ar-AE es-UY ar-BH es-PY ar-QA es-BO es-SV es-HN es-NI es-PR zh-CHT
 s2q = $(subst \ ,?,$1)
@@ -294,6 +303,8 @@ linuxdesktopapplicationsdir = @datadir@/applications
 linuxdesktopapplications_DATA = $(LINUX_DESKTOPAPPLICATIONS)
 programfilesdir = @libdir@/@PACKAGE@
 programfiles_DATA = $(PROGRAMFILES)
+commonapplicationdatarootpixmapsdir = @datadir@/pixmaps
+commonapplicationdatarootpixmaps_DATA = $(COMMONAPPLICATIONDATAROOT_PIXMAPS)
 
 # generating satellite assemblies
 culture_resources = $(foreach res, $(RESOURCES_ESC), $(if $(call is_cultured_resource,$(call get_resource_name, $(res))),$(res)))
@@ -304,6 +315,7 @@ build_satellite_assembly_list = $(call q2s,$(cultures:%=$(BUILD_DIR)/%/$(SATELLI
 build_culture_res_files = $(call q2s,$(foreach res, $(culture_resources),$(call get_resource_name,$(res))))
 install_satellite_assembly_list = $(subst $(BUILD_DIR),$(DESTDIR)$(libdir)/$(PACKAGE),$(build_satellite_assembly_list))
 PEDALOG_INTERFACE_DESKTOP = $(BUILD_DIR)/pedalog-interface.desktop
+PEDALOG_INTERFACE_PNG = $(BUILD_DIR)/pixmaps/pedalog-interface.png
 PWPP_PEDALOG_DLL_CONFIG = $(BUILD_DIR)/Pwpp.Pedalog.dll.config
 LIBPEDALOG_DLL = $(BUILD_DIR)/libpedalog.dll
 ZEDGRAPH_DLL = $(BUILD_DIR)/ZedGraph.dll
@@ -412,6 +424,26 @@ uninstall-pkglibSCRIPTS:
 	test -n "$$list" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(pkglibdir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(pkglibdir)" && rm -f $$files
+install-commonapplicationdatarootpixmapsDATA: $(commonapplicationdatarootpixmaps_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(commonapplicationdatarootpixmapsdir)" || $(MKDIR_P) "$(DESTDIR)$(commonapplicationdatarootpixmapsdir)"
+	@list='$(commonapplicationdatarootpixmaps_DATA)'; test -n "$(commonapplicationdatarootpixmapsdir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(commonapplicationdatarootpixmapsdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(commonapplicationdatarootpixmapsdir)" || exit $$?; \
+	done
+
+uninstall-commonapplicationdatarootpixmapsDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(commonapplicationdatarootpixmaps_DATA)'; test -n "$(commonapplicationdatarootpixmapsdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(commonapplicationdatarootpixmapsdir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(commonapplicationdatarootpixmapsdir)" && rm -f $$files
 install-linuxdesktopapplicationsDATA: $(linuxdesktopapplications_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(linuxdesktopapplicationsdir)" || $(MKDIR_P) "$(DESTDIR)$(linuxdesktopapplicationsdir)"
@@ -493,7 +525,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(SCRIPTS) $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkglibdir)" "$(DESTDIR)$(linuxdesktopapplicationsdir)" "$(DESTDIR)$(programfilesdir)"; do \
+	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkglibdir)" "$(DESTDIR)$(commonapplicationdatarootpixmapsdir)" "$(DESTDIR)$(linuxdesktopapplicationsdir)" "$(DESTDIR)$(programfilesdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -543,8 +575,8 @@ info: info-am
 
 info-am:
 
-install-data-am: install-linuxdesktopapplicationsDATA \
-	install-programfilesDATA
+install-data-am: install-commonapplicationdatarootpixmapsDATA \
+	install-linuxdesktopapplicationsDATA install-programfilesDATA
 
 install-dvi: install-dvi-am
 
@@ -589,6 +621,7 @@ ps: ps-am
 ps-am:
 
 uninstall-am: uninstall-binSCRIPTS \
+	uninstall-commonapplicationdatarootpixmapsDATA \
 	uninstall-linuxdesktopapplicationsDATA uninstall-pkglibSCRIPTS \
 	uninstall-programfilesDATA
 
@@ -596,7 +629,8 @@ uninstall-am: uninstall-binSCRIPTS \
 
 .PHONY: all all-am check check-am clean clean-generic distclean \
 	distclean-generic distdir dvi dvi-am html html-am info info-am \
-	install install-am install-binSCRIPTS install-data \
+	install install-am install-binSCRIPTS \
+	install-commonapplicationdatarootpixmapsDATA install-data \
 	install-data-am install-dvi install-dvi-am install-exec \
 	install-exec-am install-html install-html-am install-info \
 	install-info-am install-linuxdesktopapplicationsDATA \
@@ -605,11 +639,13 @@ uninstall-am: uninstall-binSCRIPTS \
 	install-strip installcheck installcheck-am installdirs \
 	maintainer-clean maintainer-clean-generic mostlyclean \
 	mostlyclean-generic pdf pdf-am ps ps-am uninstall uninstall-am \
-	uninstall-binSCRIPTS uninstall-linuxdesktopapplicationsDATA \
-	uninstall-pkglibSCRIPTS uninstall-programfilesDATA
+	uninstall-binSCRIPTS \
+	uninstall-commonapplicationdatarootpixmapsDATA \
+	uninstall-linuxdesktopapplicationsDATA uninstall-pkglibSCRIPTS \
+	uninstall-programfilesDATA
 
 
-all: $(ASSEMBLY) $(LINUX_DESKTOPAPPLICATIONS) $(PROGRAMFILES) $(BINARIES) 
+all: $(ASSEMBLY) $(LINUX_DESKTOPAPPLICATIONS) $(COMMONAPPLICATIONDATAROOT_PIXMAPS) $(PROGRAMFILES) $(BINARIES) 
 
 # macros
 
@@ -648,6 +684,7 @@ uninstall-satellite-assemblies:
 	rm -rf $(install_satellite_assembly_list)
 
 $(eval $(call emit-deploy-target,PEDALOG_INTERFACE_DESKTOP))
+$(eval $(call emit-deploy-target,PEDALOG_INTERFACE_PNG))
 $(eval $(call emit-deploy-target,PWPP_PEDALOG_DLL_CONFIG))
 $(eval $(call emit-deploy-target,LIBPEDALOG_DLL))
 $(eval $(call emit-deploy-target,ZEDGRAPH_DLL))

@@ -69,6 +69,8 @@ linuxdesktopapplicationsdir = @datadir@/applications
 linuxdesktopapplications_DATA = $(LINUX_DESKTOPAPPLICATIONS)
 programfilesdir = @libdir@/@PACKAGE@
 programfiles_DATA = $(PROGRAMFILES)
+commonapplicationdatarootpixmapsdir = @datadir@/pixmaps
+commonapplicationdatarootpixmaps_DATA = $(COMMONAPPLICATIONDATAROOT_PIXMAPS)
 
 
 # macros
