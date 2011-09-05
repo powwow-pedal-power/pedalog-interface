@@ -24,4 +24,4 @@ sudo apt-get install mono libpedalog
 
 3) Run program!
 
-mono
+pedalog-interface
