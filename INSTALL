@@ -27,8 +27,10 @@ How to build on Linux:
 
    sudo apt-get install libpedalog0
 
-3) The easiest way to build the software is MonoDevelop::
+3) Build the interface software
 
-   sudo apt-get install monodevelop
+   ./configure --prefix=/usr
+   make
+   sudo make install
 
-4) Open the .sln file in MonoDevelop, build and run
+4) An icon should now be installed in the 'Education' section of your applications menu.
