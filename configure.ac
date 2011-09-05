@@ -1,7 +1,7 @@
 dnl Warning: This is an automatically generated file, do not edit!
 dnl Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.54])
-AC_INIT([Pedal_Power_Interface_v4], [0.1])
+AC_INIT([pedalog-interface], [0.1])
 AM_INIT_AUTOMAKE([foreign])
 AM_MAINTAINER_MODE
 
@@ -51,7 +51,7 @@ dnl package checks, per config
 
 
 AC_CONFIG_FILES([
-Pedal_Power_Interface_v2/pedal_power_interface_v4
+Pedal_Power_Interface_v2/pedalog-interface
 Pedal_Power_Interface_v2/Makefile
 Makefile
 

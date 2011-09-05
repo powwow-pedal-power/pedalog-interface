@@ -1,6 +1,6 @@
 #! /bin/sh
 
-PROJECT=Pedal_Power_Interface_v4
+PROJECT=pedalog-interface
 FILE=
 CONFIGURE=configure.ac
 

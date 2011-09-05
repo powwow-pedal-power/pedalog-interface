@@ -15,10 +15,10 @@
 
 
 
-pkgdatadir = $(datadir)/pedal_power_interface_v4
-pkgincludedir = $(includedir)/pedal_power_interface_v4
-pkglibdir = $(libdir)/pedal_power_interface_v4
-pkglibexecdir = $(libexecdir)/pedal_power_interface_v4
+pkgdatadir = $(datadir)/pedalog-interface
+pkgincludedir = $(includedir)/pedalog-interface
+pkglibdir = $(libdir)/pedalog-interface
+pkglibexecdir = $(libexecdir)/pedalog-interface
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -105,7 +105,7 @@ AUTOHEADER = ${SHELL} /home/dan/pedalog/pedalog-interface/missing --run autohead
 AUTOMAKE = ${SHELL} /home/dan/pedalog/pedalog-interface/missing --run automake-1.11
 AWK = mawk
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"Pedal_Power_Interface_v4\" -DPACKAGE_TARNAME=\"pedal_power_interface_v4\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"Pedal_Power_Interface_v4\ 0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"pedal_power_interface_v4\" -DVERSION=\"0.1\"
+DEFS = -DPACKAGE_NAME=\"pedalog-interface\" -DPACKAGE_TARNAME=\"pedalog-interface\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"pedalog-interface\ 0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"pedalog-interface\" -DVERSION=\"0.1\"
 ECHO_C = 
 ECHO_N = -n
 ECHO_T = 
@@ -118,14 +118,14 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAINT = 
+MAINT = #
 MAKEINFO = ${SHELL} /home/dan/pedalog/pedalog-interface/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
-PACKAGE = pedal_power_interface_v4
+PACKAGE = pedalog-interface
 PACKAGE_BUGREPORT = 
-PACKAGE_NAME = Pedal_Power_Interface_v4
-PACKAGE_STRING = Pedal_Power_Interface_v4 0.1
-PACKAGE_TARNAME = pedal_power_interface_v4
+PACKAGE_NAME = pedalog-interface
+PACKAGE_STRING = pedalog-interface 0.1
+PACKAGE_TARNAME = pedalog-interface
 PACKAGE_URL = 
 PACKAGE_VERSION = 0.1
 PATH_SEPARATOR = :
@@ -148,10 +148,10 @@ datadir = ${datarootdir}
 datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
-exec_prefix = /usr/local
-expanded_bindir = /usr/local/bin
-expanded_datadir = /usr/local/share
-expanded_libdir = /usr/local/lib
+exec_prefix = /usr
+expanded_bindir = /usr/bin
+expanded_datadir = /usr/share
+expanded_libdir = /usr/lib
 host_alias = 
 htmldir = ${docdir}
 includedir = ${prefix}/include
@@ -165,7 +165,7 @@ mandir = ${datarootdir}/man
 mkdir_p = /bin/mkdir -p
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /usr/local
+prefix = /usr
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
@@ -186,7 +186,7 @@ all: all-recursive
 .SUFFIXES:
 am--refresh:
 	@:
-$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
+$(srcdir)/Makefile.in: # $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -213,9 +213,9 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	$(SHELL) ./config.status --recheck
 
-$(top_srcdir)/configure:  $(am__configure_deps)
+$(top_srcdir)/configure: # $(am__configure_deps)
 	$(am__cd) $(srcdir) && $(AUTOCONF)
-$(ACLOCAL_M4):  $(am__aclocal_m4_deps)
+$(ACLOCAL_M4): # $(am__aclocal_m4_deps)
 	$(am__cd) $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
 $(am__aclocal_m4_deps):
 

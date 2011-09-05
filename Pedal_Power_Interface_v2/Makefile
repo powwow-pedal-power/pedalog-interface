@@ -17,10 +17,10 @@
 
 
 
-pkgdatadir = $(datadir)/pedal_power_interface_v4
-pkgincludedir = $(includedir)/pedal_power_interface_v4
-pkglibdir = $(libdir)/pedal_power_interface_v4
-pkglibexecdir = $(libexecdir)/pedal_power_interface_v4
+pkgdatadir = $(datadir)/pedalog-interface
+pkgincludedir = $(includedir)/pedalog-interface
+pkglibdir = $(libdir)/pedalog-interface
+pkglibexecdir = $(libexecdir)/pedalog-interface
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -34,8 +34,7 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
-	$(srcdir)/pedal_power_interface_v4.in \
-	$(top_srcdir)/Makefile.include
+	$(srcdir)/pedalog-interface.in $(top_srcdir)/Makefile.include
 subdir = Pedal_Power_Interface_v2
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/expansions.m4 \
@@ -43,7 +42,7 @@ am__aclocal_m4_deps = $(top_srcdir)/expansions.m4 \
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
-CONFIG_CLEAN_FILES = pedal_power_interface_v4
+CONFIG_CLEAN_FILES = pedalog-interface
 CONFIG_CLEAN_VPATH_FILES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -67,11 +66,12 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkglibdir)" \
+	"$(DESTDIR)$(linuxdesktopapplicationsdir)" \
 	"$(DESTDIR)$(programfilesdir)"
 SCRIPTS = $(bin_SCRIPTS) $(pkglib_SCRIPTS)
 SOURCES =
 DIST_SOURCES =
-DATA = $(programfiles_DATA)
+DATA = $(linuxdesktopapplications_DATA) $(programfiles_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = ${SHELL} /home/dan/pedalog/pedalog-interface/missing --run aclocal-1.11
 AMTAR = ${SHELL} /home/dan/pedalog/pedalog-interface/missing --run tar
@@ -80,7 +80,7 @@ AUTOHEADER = ${SHELL} /home/dan/pedalog/pedalog-interface/missing --run autohead
 AUTOMAKE = ${SHELL} /home/dan/pedalog/pedalog-interface/missing --run automake-1.11
 AWK = mawk
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"Pedal_Power_Interface_v4\" -DPACKAGE_TARNAME=\"pedal_power_interface_v4\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"Pedal_Power_Interface_v4\ 0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"pedal_power_interface_v4\" -DVERSION=\"0.1\"
+DEFS = -DPACKAGE_NAME=\"pedalog-interface\" -DPACKAGE_TARNAME=\"pedalog-interface\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"pedalog-interface\ 0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"pedalog-interface\" -DVERSION=\"0.1\"
 ECHO_C = 
 ECHO_N = -n
 ECHO_T = 
@@ -93,14 +93,14 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAINT = 
+MAINT = #
 MAKEINFO = ${SHELL} /home/dan/pedalog/pedalog-interface/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
-PACKAGE = pedal_power_interface_v4
+PACKAGE = pedalog-interface
 PACKAGE_BUGREPORT = 
-PACKAGE_NAME = Pedal_Power_Interface_v4
-PACKAGE_STRING = Pedal_Power_Interface_v4 0.1
-PACKAGE_TARNAME = pedal_power_interface_v4
+PACKAGE_NAME = pedalog-interface
+PACKAGE_STRING = pedalog-interface 0.1
+PACKAGE_TARNAME = pedalog-interface
 PACKAGE_URL = 
 PACKAGE_VERSION = 0.1
 PATH_SEPARATOR = :
@@ -123,10 +123,10 @@ datadir = ${datarootdir}
 datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
-exec_prefix = /usr/local
-expanded_bindir = /usr/local/bin
-expanded_datadir = /usr/local/share
-expanded_libdir = /usr/local/lib
+exec_prefix = /usr
+expanded_bindir = /usr/bin
+expanded_datadir = /usr/share
+expanded_libdir = /usr/lib
 host_alias = 
 htmldir = ${docdir}
 includedir = ${prefix}/include
@@ -140,7 +140,7 @@ mandir = ${datarootdir}/man
 mkdir_p = /bin/mkdir -p
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /usr/local
+prefix = /usr
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
@@ -170,6 +170,8 @@ COMPILE_TARGET = winexe
 PROJECT_REFERENCES = 
 #BUILD_DIR = bin/Debug/
 BUILD_DIR = bin/Release/
+#PEDALOG_INTERFACE_DESKTOP_SOURCE = pedalog-interface.desktop
+PEDALOG_INTERFACE_DESKTOP_SOURCE = pedalog-interface.desktop
 #PWPP_PEDALOG_DLL_CONFIG_SOURCE = Pwpp.Pedalog.dll.config
 PWPP_PEDALOG_DLL_CONFIG_SOURCE = Pwpp.Pedalog.dll.config
 #LIBPEDALOG_DLL_SOURCE = libpedalog.dll
@@ -183,6 +185,9 @@ PWPP_PEDALOG_DLL_SOURCE = ../Assemblies/libpedalog-mono/Pwpp.Pedalog.dll
 PEDALOG_INTERFACE_EXE_MDB = 
 AL = al2
 SATELLITE_ASSEMBLY_NAME = $(notdir $(basename $(ASSEMBLY))).resources.dll
+LINUX_DESKTOPAPPLICATIONS = \
+	$(PEDALOG_INTERFACE_DESKTOP)  
+
 PROGRAMFILES = \
 	$(PWPP_PEDALOG_DLL_CONFIG) \
 	$(LIBPEDALOG_DLL) \
@@ -191,7 +196,7 @@ PROGRAMFILES = \
 	$(PEDALOG_INTERFACE_EXE_MDB)  
 
 BINARIES = \
-	$(PEDAL_POWER_INTERFACE_V4)  
+	$(PEDALOG_INTERFACE)  
 
 RESGEN = resgen2
 FILES = \
@@ -214,7 +219,8 @@ EXTRAS = \
 	Pedal_Power_Interface_v4_TemporaryKey.pfx \
 	Resources \
 	libpedalog.dll \
-	pedal_power_interface_v4.in 
+	pedalog-interface.desktop \
+	pedalog-interface.in 
 
 REFERENCES = \
 	System \
@@ -226,9 +232,9 @@ DLL_REFERENCES = \
 	../Assemblies/zedgraph_dll_v515/zedgraph_dll_v5.1.5/ZedGraph.dll \
 	../Assemblies/libpedalog-mono/Pwpp.Pedalog.dll
 
-CLEANFILES = $(PROGRAMFILES) $(BINARIES) $(ASSEMBLY) $(ASSEMBLY).mdb \
-	$(BINARIES) $(build_resx_resources) \
-	$(build_satellite_assembly_list)
+CLEANFILES = $(LINUX_DESKTOPAPPLICATIONS) $(PROGRAMFILES) $(BINARIES) \
+	$(ASSEMBLY) $(ASSEMBLY).mdb $(BINARIES) \
+	$(build_resx_resources) $(build_satellite_assembly_list)
 VALID_CULTURES = ar bg ca zh-CHS cs da de el en es fi fr he hu is it ja ko nl no pl pt ro ru hr sk sq sv th tr id uk be sl et lv lt fa vi hy eu mk af ka fo hi sw gu ta te kn mr gl kok ar-SA bg-BG ca-ES zh-TW cs-CZ da-DK de-DE el-GR en-US fi-FI fr-FR he-IL hu-HU is-IS it-IT ja-JP ko-KR nl-NL nb-NO pl-PL pt-BR ro-RO ru-RU hr-HR sk-SK sq-AL sv-SE th-TH tr-TR id-ID uk-UA be-BY sl-SI et-EE lv-LV lt-LT fa-IR vi-VN hy-AM eu-ES mk-MK af-ZA ka-GE fo-FO hi-IN sw-KE gu-IN ta-IN te-IN kn-IN mr-IN gl-ES kok-IN ar-IQ zh-CN de-CH en-GB es-MX fr-BE it-CH nl-BE nn-NO pt-PT sv-FI ar-EG zh-HK de-AT en-AU es-ES fr-CA ar-LY zh-SG de-LU en-CA es-GT fr-CH ar-DZ zh-MO en-NZ es-CR fr-LU ar-MA en-IE es-PA ar-TN en-ZA es-DO ar-OM es-VE ar-YE es-CO ar-SY es-PE ar-JO en-TT es-AR ar-LB en-ZW es-EC ar-KW en-PH es-CL ar-AE es-UY ar-BH es-PY ar-QA es-BO es-SV es-HN es-NI es-PR zh-CHT
 s2q = $(subst \ ,?,$1)
 q2s = $(subst ?,\ ,$1)
@@ -284,7 +290,9 @@ rm = $(call rm_actual,$(call s2q2s,$1),$(call s2q2s,$2)/$(shell basename '$(call
 DISTCLEANFILES = $(GENERATED_FILES) $(pc_files) $(BUILD_DIR)/*
 pkglib_SCRIPTS = $(ASSEMBLY)
 bin_SCRIPTS = $(BINARIES)
-programfilesdir = ${exec_prefix}/lib/pedal_power_interface_v4
+linuxdesktopapplicationsdir = ${datarootdir}/applications
+linuxdesktopapplications_DATA = $(LINUX_DESKTOPAPPLICATIONS)
+programfilesdir = ${exec_prefix}/lib/pedalog-interface
 programfiles_DATA = $(PROGRAMFILES)
 
 # generating satellite assemblies
@@ -295,15 +303,16 @@ culture_resource_commandlines = $(call unesc2,cmd_line_satellite_$1 += '/embed:$
 build_satellite_assembly_list = $(call q2s,$(cultures:%=$(BUILD_DIR)/%/$(SATELLITE_ASSEMBLY_NAME)))
 build_culture_res_files = $(call q2s,$(foreach res, $(culture_resources),$(call get_resource_name,$(res))))
 install_satellite_assembly_list = $(subst $(BUILD_DIR),$(DESTDIR)$(libdir)/$(PACKAGE),$(build_satellite_assembly_list))
+PEDALOG_INTERFACE_DESKTOP = $(BUILD_DIR)/pedalog-interface.desktop
 PWPP_PEDALOG_DLL_CONFIG = $(BUILD_DIR)/Pwpp.Pedalog.dll.config
 LIBPEDALOG_DLL = $(BUILD_DIR)/libpedalog.dll
 ZEDGRAPH_DLL = $(BUILD_DIR)/ZedGraph.dll
 PWPP_PEDALOG_DLL = $(BUILD_DIR)/Pwpp.Pedalog.dll
-PEDAL_POWER_INTERFACE_V4 = $(BUILD_DIR)/pedal_power_interface_v4
+PEDALOG_INTERFACE = $(BUILD_DIR)/pedalog-interface
 all: all-am
 
 .SUFFIXES:
-$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(top_srcdir)/Makefile.include $(am__configure_deps)
+$(srcdir)/Makefile.in: # $(srcdir)/Makefile.am $(top_srcdir)/Makefile.include $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -328,12 +337,12 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
-$(top_srcdir)/configure:  $(am__configure_deps)
+$(top_srcdir)/configure: # $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-$(ACLOCAL_M4):  $(am__aclocal_m4_deps)
+$(ACLOCAL_M4): # $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
-pedal_power_interface_v4: $(top_builddir)/config.status $(srcdir)/pedal_power_interface_v4.in
+pedalog-interface: $(top_builddir)/config.status $(srcdir)/pedalog-interface.in
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@
 install-binSCRIPTS: $(bin_SCRIPTS)
 	@$(NORMAL_INSTALL)
@@ -403,6 +412,26 @@ uninstall-pkglibSCRIPTS:
 	test -n "$$list" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(pkglibdir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(pkglibdir)" && rm -f $$files
+install-linuxdesktopapplicationsDATA: $(linuxdesktopapplications_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(linuxdesktopapplicationsdir)" || $(MKDIR_P) "$(DESTDIR)$(linuxdesktopapplicationsdir)"
+	@list='$(linuxdesktopapplications_DATA)'; test -n "$(linuxdesktopapplicationsdir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(linuxdesktopapplicationsdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(linuxdesktopapplicationsdir)" || exit $$?; \
+	done
+
+uninstall-linuxdesktopapplicationsDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(linuxdesktopapplications_DATA)'; test -n "$(linuxdesktopapplicationsdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(linuxdesktopapplicationsdir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(linuxdesktopapplicationsdir)" && rm -f $$files
 install-programfilesDATA: $(programfiles_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(programfilesdir)" || $(MKDIR_P) "$(DESTDIR)$(programfilesdir)"
@@ -464,7 +493,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(SCRIPTS) $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkglibdir)" "$(DESTDIR)$(programfilesdir)"; do \
+	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkglibdir)" "$(DESTDIR)$(linuxdesktopapplicationsdir)" "$(DESTDIR)$(programfilesdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -514,7 +543,8 @@ info: info-am
 
 info-am:
 
-install-data-am: install-programfilesDATA
+install-data-am: install-linuxdesktopapplicationsDATA \
+	install-programfilesDATA
 
 install-dvi: install-dvi-am
 
@@ -558,7 +588,8 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-binSCRIPTS uninstall-pkglibSCRIPTS \
+uninstall-am: uninstall-binSCRIPTS \
+	uninstall-linuxdesktopapplicationsDATA uninstall-pkglibSCRIPTS \
 	uninstall-programfilesDATA
 
 .MAKE: install-am install-strip
@@ -568,16 +599,17 @@ uninstall-am: uninstall-binSCRIPTS uninstall-pkglibSCRIPTS \
 	install install-am install-binSCRIPTS install-data \
 	install-data-am install-dvi install-dvi-am install-exec \
 	install-exec-am install-html install-html-am install-info \
-	install-info-am install-man install-pdf install-pdf-am \
-	install-pkglibSCRIPTS install-programfilesDATA install-ps \
-	install-ps-am install-strip installcheck installcheck-am \
-	installdirs maintainer-clean maintainer-clean-generic \
-	mostlyclean mostlyclean-generic pdf pdf-am ps ps-am uninstall \
-	uninstall-am uninstall-binSCRIPTS uninstall-pkglibSCRIPTS \
-	uninstall-programfilesDATA
+	install-info-am install-linuxdesktopapplicationsDATA \
+	install-man install-pdf install-pdf-am install-pkglibSCRIPTS \
+	install-programfilesDATA install-ps install-ps-am \
+	install-strip installcheck installcheck-am installdirs \
+	maintainer-clean maintainer-clean-generic mostlyclean \
+	mostlyclean-generic pdf pdf-am ps ps-am uninstall uninstall-am \
+	uninstall-binSCRIPTS uninstall-linuxdesktopapplicationsDATA \
+	uninstall-pkglibSCRIPTS uninstall-programfilesDATA
 
 
-all: $(ASSEMBLY) $(PROGRAMFILES) $(BINARIES) 
+all: $(ASSEMBLY) $(LINUX_DESKTOPAPPLICATIONS) $(PROGRAMFILES) $(BINARIES) 
 
 # macros
 
@@ -615,11 +647,12 @@ install-satellite-assemblies: $(install_satellite_assembly_list)
 uninstall-satellite-assemblies:
 	rm -rf $(install_satellite_assembly_list)
 
+$(eval $(call emit-deploy-target,PEDALOG_INTERFACE_DESKTOP))
 $(eval $(call emit-deploy-target,PWPP_PEDALOG_DLL_CONFIG))
 $(eval $(call emit-deploy-target,LIBPEDALOG_DLL))
 $(eval $(call emit-deploy-target,ZEDGRAPH_DLL))
 $(eval $(call emit-deploy-target,PWPP_PEDALOG_DLL))
-$(eval $(call emit-deploy-wrapper,PEDAL_POWER_INTERFACE_V4,pedal_power_interface_v4,x))
+$(eval $(call emit-deploy-wrapper,PEDALOG_INTERFACE,pedalog-interface,x))
 
 $(eval $(call emit_resgen_targets))
 $(build_xamlg_list): %.xaml.g.cs: %.xaml

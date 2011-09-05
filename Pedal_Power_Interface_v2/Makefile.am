@@ -12,6 +12,7 @@ COMPILE_TARGET = winexe
 PROJECT_REFERENCES = 
 BUILD_DIR = bin/Debug/
 
+PEDALOG_INTERFACE_DESKTOP_SOURCE=pedalog-interface.desktop
 PWPP_PEDALOG_DLL_CONFIG_SOURCE=Pwpp.Pedalog.dll.config
 LIBPEDALOG_DLL_SOURCE=libpedalog.dll
 ZEDGRAPH_DLL_SOURCE=../Assemblies/zedgraph_dll_v515/zedgraph_dll_v5.1.5/ZedGraph.dll
@@ -30,6 +31,7 @@ COMPILE_TARGET = winexe
 PROJECT_REFERENCES = 
 BUILD_DIR = bin/Release/
 
+PEDALOG_INTERFACE_DESKTOP_SOURCE=pedalog-interface.desktop
 PWPP_PEDALOG_DLL_CONFIG_SOURCE=Pwpp.Pedalog.dll.config
 LIBPEDALOG_DLL_SOURCE=libpedalog.dll
 ZEDGRAPH_DLL_SOURCE=../Assemblies/zedgraph_dll_v515/zedgraph_dll_v5.1.5/ZedGraph.dll
@@ -41,6 +43,9 @@ endif
 AL=al2
 SATELLITE_ASSEMBLY_NAME=$(notdir $(basename $(ASSEMBLY))).resources.dll
 
+LINUX_DESKTOPAPPLICATIONS = \
+	$(PEDALOG_INTERFACE_DESKTOP)  
+
 PROGRAMFILES = \
 	$(PWPP_PEDALOG_DLL_CONFIG) \
 	$(LIBPEDALOG_DLL) \
@@ -49,12 +54,12 @@ PROGRAMFILES = \
 	$(PEDALOG_INTERFACE_EXE_MDB)  
 
 BINARIES = \
-	$(PEDAL_POWER_INTERFACE_V4)  
+	$(PEDALOG_INTERFACE)  
 
 
 RESGEN=resgen2
 	
-all: $(ASSEMBLY) $(PROGRAMFILES) $(BINARIES) 
+all: $(ASSEMBLY) $(LINUX_DESKTOPAPPLICATIONS) $(PROGRAMFILES) $(BINARIES) 
 
 FILES = \
 	Form1.cs \
@@ -77,7 +82,8 @@ EXTRAS = \
 	Pedal_Power_Interface_v4_TemporaryKey.pfx \
 	Resources \
 	libpedalog.dll \
-	pedal_power_interface_v4.in 
+	pedalog-interface.desktop \
+	pedalog-interface.in 
 
 REFERENCES =  \
 	System \
@@ -89,21 +95,23 @@ DLL_REFERENCES =  \
 	../Assemblies/zedgraph_dll_v515/zedgraph_dll_v5.1.5/ZedGraph.dll \
 	../Assemblies/libpedalog-mono/Pwpp.Pedalog.dll
 
-CLEANFILES = $(PROGRAMFILES) $(BINARIES) 
+CLEANFILES = $(LINUX_DESKTOPAPPLICATIONS) $(PROGRAMFILES) $(BINARIES) 
 
 include $(top_srcdir)/Makefile.include
 
+PEDALOG_INTERFACE_DESKTOP = $(BUILD_DIR)/pedalog-interface.desktop
 PWPP_PEDALOG_DLL_CONFIG = $(BUILD_DIR)/Pwpp.Pedalog.dll.config
 LIBPEDALOG_DLL = $(BUILD_DIR)/libpedalog.dll
 ZEDGRAPH_DLL = $(BUILD_DIR)/ZedGraph.dll
 PWPP_PEDALOG_DLL = $(BUILD_DIR)/Pwpp.Pedalog.dll
-PEDAL_POWER_INTERFACE_V4 = $(BUILD_DIR)/pedal_power_interface_v4
+PEDALOG_INTERFACE = $(BUILD_DIR)/pedalog-interface
 
+$(eval $(call emit-deploy-target,PEDALOG_INTERFACE_DESKTOP))
 $(eval $(call emit-deploy-target,PWPP_PEDALOG_DLL_CONFIG))
 $(eval $(call emit-deploy-target,LIBPEDALOG_DLL))
 $(eval $(call emit-deploy-target,ZEDGRAPH_DLL))
 $(eval $(call emit-deploy-target,PWPP_PEDALOG_DLL))
-$(eval $(call emit-deploy-wrapper,PEDAL_POWER_INTERFACE_V4,pedal_power_interface_v4,x))
+$(eval $(call emit-deploy-wrapper,PEDALOG_INTERFACE,pedalog-interface,x))
 
 
 $(eval $(call emit_resgen_targets))
