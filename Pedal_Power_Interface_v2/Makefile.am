@@ -13,7 +13,6 @@ PROJECT_REFERENCES =
 BUILD_DIR = bin/Debug/
 
 PWPP_PEDALOG_DLL_CONFIG_SOURCE=Pwpp.Pedalog.dll.config
-PEDALOG_INTERFACE_SOURCE=pedalog-interface
 LIBPEDALOG_DLL_SOURCE=libpedalog.dll
 ZEDGRAPH_DLL_SOURCE=../Assemblies/zedgraph_dll_v515/zedgraph_dll_v5.1.5/ZedGraph.dll
 PWPP_PEDALOG_DLL_SOURCE=../Assemblies/libpedalog-mono/Pwpp.Pedalog.dll
@@ -32,7 +31,6 @@ PROJECT_REFERENCES =
 BUILD_DIR = bin/Release/
 
 PWPP_PEDALOG_DLL_CONFIG_SOURCE=Pwpp.Pedalog.dll.config
-PEDALOG_INTERFACE_SOURCE=pedalog-interface
 LIBPEDALOG_DLL_SOURCE=libpedalog.dll
 ZEDGRAPH_DLL_SOURCE=../Assemblies/zedgraph_dll_v515/zedgraph_dll_v5.1.5/ZedGraph.dll
 PWPP_PEDALOG_DLL_SOURCE=../Assemblies/libpedalog-mono/Pwpp.Pedalog.dll
@@ -45,7 +43,6 @@ SATELLITE_ASSEMBLY_NAME=$(notdir $(basename $(ASSEMBLY))).resources.dll
 
 PROGRAMFILES = \
 	$(PWPP_PEDALOG_DLL_CONFIG) \
-	$(PEDALOG_INTERFACE) \
 	$(LIBPEDALOG_DLL) \
 	$(ZEDGRAPH_DLL) \
 	$(PWPP_PEDALOG_DLL) \
@@ -77,7 +74,6 @@ EXTRAS = \
 	Properties/app.manifest \
 	Properties/Settings.settings \
 	Pwpp.Pedalog.dll.config \
-	pedalog-interface \
 	Pedal_Power_Interface_v4_TemporaryKey.pfx \
 	Resources \
 	libpedalog.dll \
@@ -98,14 +94,12 @@ CLEANFILES = $(PROGRAMFILES) $(BINARIES)
 include $(top_srcdir)/Makefile.include
 
 PWPP_PEDALOG_DLL_CONFIG = $(BUILD_DIR)/Pwpp.Pedalog.dll.config
-PEDALOG_INTERFACE = $(BUILD_DIR)/pedalog-interface
 LIBPEDALOG_DLL = $(BUILD_DIR)/libpedalog.dll
 ZEDGRAPH_DLL = $(BUILD_DIR)/ZedGraph.dll
 PWPP_PEDALOG_DLL = $(BUILD_DIR)/Pwpp.Pedalog.dll
 PEDAL_POWER_INTERFACE_V4 = $(BUILD_DIR)/pedal_power_interface_v4
 
 $(eval $(call emit-deploy-target,PWPP_PEDALOG_DLL_CONFIG))
-$(eval $(call emit-deploy-target,PEDALOG_INTERFACE))
 $(eval $(call emit-deploy-target,LIBPEDALOG_DLL))
 $(eval $(call emit-deploy-target,ZEDGRAPH_DLL))
 $(eval $(call emit-deploy-target,PWPP_PEDALOG_DLL))

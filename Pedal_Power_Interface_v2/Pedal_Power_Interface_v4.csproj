@@ -125,9 +125,6 @@
     <None Include="Pwpp.Pedalog.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="pedalog-interface">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Pedal_Power_Interface_v4_TemporaryKey.pfx" />
