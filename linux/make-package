@@ -1,2 +1,0 @@
-cp pedalog-interface ../Pedal_Power_Interface_v2/bin/Release
-tar cvzf pedalog-interface-0.1.tar.gz ../Pedal_Power_Interface_v2/bin/Release
