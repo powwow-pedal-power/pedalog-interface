@@ -14,3 +14,9 @@ UpgradeLog.XML
 setup.exe
 config.status
 config.log
+/debian/files
+*.log
+*.substvars
+*.debhelper
+/debian/pedalog-interface
+/debian/tmp
