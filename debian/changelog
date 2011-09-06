@@ -1,17 +1,17 @@
 pedalog-interface (5.0-3) maverick; urgency=low
 
- * Fixed missing autotools files and missing WinForms dependency
+  * Fixed missing autotools files and missing WinForms dependency
 
  -- Dan Haughey <dan@powwow-pedal-power.org.uk>  Tue, 06 Sep 2011 15:07:00 +0100
 
 pedalog-interface (5.0-2) maverick; urgency=low
 
- * Fixed series for Ubuntu
+  * Fixed series for Ubuntu
   
  -- Dan Haughey <dan@powwow-pedal-power.org.uk>  Mon, 05 Sep 2011 14:43:00 +0100
    
 pedalog-interface (5.0-1) maverick; urgency=low
 
- * Initial release
+  * Initial release
 
  -- Dan Haughey <dan@powwow-pedal-power.org.uk>  Mon, 05 Sep 2011 12:09:18 +0100
