@@ -10,8 +10,8 @@ although only Debian and Windows have been tested so far.
 Debian/Ubuntu
 -------------
 
-libpedalog needs to be installed before this program will run. It can be installed using the following
-steps:
+Mono and libpedalog need to be installed before this program will run. They can be installed
+using the following steps for Debian and Ubuntu users:
 
 1) Add the following lines to /etc/apt/sources.list:
 
@@ -20,7 +20,7 @@ deb-src http://ppa.launchpad.net/powwow-pedal-power/pedalog/ubuntu maverick main
 
 2) Install dependencies:
 
-sudo apt-get install mono libpedalog
+sudo apt-get install mono-runtime libmono-winforms2.0-cil libpedalog
 
 3) Run program!
 

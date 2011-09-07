@@ -63,7 +63,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtest = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.zgc1 = new ZedGraph.ZedGraphControl();
             this.panel5 = new System.Windows.Forms.Panel();
             this.W_max_lbl = new System.Windows.Forms.Label();
             this.max_power_lbl = new System.Windows.Forms.Label();
@@ -86,6 +85,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Error_lbl = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.zgc1 = new ZedGraph.ZedGraphControl();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -96,6 +97,7 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -106,6 +108,7 @@
             // 
             // LED1
             // 
+            this.LED1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LED1.BackColor = System.Drawing.Color.Red;
             this.LED1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LED1.Location = new System.Drawing.Point(13, 464);
@@ -404,7 +407,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage1.Controls.Add(this.zgc1);
+            this.tabPage1.Controls.Add(this.panel6);
             this.tabPage1.Controls.Add(this.panel5);
             this.tabPage1.Controls.Add(this.panel4);
             this.tabPage1.Controls.Add(this.panel3);
@@ -417,21 +420,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "PEDAL POWER";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // zgc1
-            // 
-            this.zgc1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.zgc1.Location = new System.Drawing.Point(331, 14);
-            this.zgc1.Name = "zgc1";
-            this.zgc1.ScrollGrace = 0D;
-            this.zgc1.ScrollMaxX = 0D;
-            this.zgc1.ScrollMaxY = 0D;
-            this.zgc1.ScrollMaxY2 = 0D;
-            this.zgc1.ScrollMinX = 0D;
-            this.zgc1.ScrollMinY = 0D;
-            this.zgc1.ScrollMinY2 = 0D;
-            this.zgc1.Size = new System.Drawing.Size(589, 311);
-            this.zgc1.TabIndex = 35;
             // 
             // panel5
             // 
@@ -470,9 +458,8 @@
             this.txMAX_POWER.AutoSize = true;
             this.txMAX_POWER.Location = new System.Drawing.Point(133, 13);
             this.txMAX_POWER.Name = "txMAX_POWER";
-            this.txMAX_POWER.Size = new System.Drawing.Size(57, 13);
+            this.txMAX_POWER.Size = new System.Drawing.Size(0, 13);
             this.txMAX_POWER.TabIndex = 29;
-            this.txMAX_POWER.Text = "MaxPower";
             // 
             // panel4
             // 
@@ -511,9 +498,8 @@
             this.txAVE_POWER.AutoSize = true;
             this.txAVE_POWER.Location = new System.Drawing.Point(133, 13);
             this.txAVE_POWER.Name = "txAVE_POWER";
-            this.txAVE_POWER.Size = new System.Drawing.Size(56, 13);
+            this.txAVE_POWER.Size = new System.Drawing.Size(0, 13);
             this.txAVE_POWER.TabIndex = 30;
-            this.txAVE_POWER.Text = "AvePower";
             // 
             // panel3
             // 
@@ -541,9 +527,8 @@
             this.txTIME.AutoSize = true;
             this.txTIME.Location = new System.Drawing.Point(121, 5);
             this.txTIME.Name = "txTIME";
-            this.txTIME.Size = new System.Drawing.Size(30, 13);
+            this.txTIME.Size = new System.Drawing.Size(0, 13);
             this.txTIME.TabIndex = 31;
-            this.txTIME.Text = "Time";
             // 
             // panel2
             // 
@@ -581,9 +566,8 @@
             this.txENERGY.AutoSize = true;
             this.txENERGY.Location = new System.Drawing.Point(132, 13);
             this.txENERGY.Name = "txENERGY";
-            this.txENERGY.Size = new System.Drawing.Size(14, 13);
+            this.txENERGY.Size = new System.Drawing.Size(0, 13);
             this.txENERGY.TabIndex = 28;
-            this.txENERGY.Text = "E";
             // 
             // panel1
             // 
@@ -611,9 +595,8 @@
             this.txPOWER.AutoSize = true;
             this.txPOWER.Location = new System.Drawing.Point(133, 13);
             this.txPOWER.Name = "txPOWER";
-            this.txPOWER.Size = new System.Drawing.Size(14, 13);
+            this.txPOWER.Size = new System.Drawing.Size(0, 13);
             this.txPOWER.TabIndex = 32;
-            this.txPOWER.Text = "P";
             // 
             // Power_lbl
             // 
@@ -627,8 +610,9 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(420, 458);
+            this.button1.Location = new System.Drawing.Point(469, 458);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(476, 88);
             this.button1.TabIndex = 21;
@@ -637,6 +621,9 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
@@ -650,12 +637,40 @@
             // 
             // Error_lbl
             // 
+            this.Error_lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Error_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Error_lbl.ForeColor = System.Drawing.Color.Red;
             this.Error_lbl.Location = new System.Drawing.Point(10, 494);
             this.Error_lbl.Name = "Error_lbl";
             this.Error_lbl.Size = new System.Drawing.Size(404, 52);
             this.Error_lbl.TabIndex = 22;
+            // 
+            // panel6
+            // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.Controls.Add(this.zgc1);
+            this.panel6.Location = new System.Drawing.Point(331, 14);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(598, 398);
+            this.panel6.TabIndex = 36;
+            // 
+            // zgc1
+            // 
+            this.zgc1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.zgc1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.zgc1.Location = new System.Drawing.Point(0, 0);
+            this.zgc1.Name = "zgc1";
+            this.zgc1.ScrollGrace = 0D;
+            this.zgc1.ScrollMaxX = 0D;
+            this.zgc1.ScrollMaxY = 0D;
+            this.zgc1.ScrollMaxY2 = 0D;
+            this.zgc1.ScrollMinX = 0D;
+            this.zgc1.ScrollMinY = 0D;
+            this.zgc1.ScrollMinY2 = 0D;
+            this.zgc1.Size = new System.Drawing.Size(598, 398);
+            this.zgc1.TabIndex = 36;
             // 
             // Form1
             // 
@@ -667,6 +682,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.LED1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(974, 594);
             this.Name = "Form1";
             this.Text = "PEDAL POWER MONITOR";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -688,6 +704,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -727,7 +744,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtest;
         private System.Windows.Forms.TabPage tabPage1;
-        private ZedGraph.ZedGraphControl zgc1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label W_max_lbl;
         private System.Windows.Forms.Label max_power_lbl;
@@ -750,6 +766,8 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label Error_lbl;
+        private System.Windows.Forms.Panel panel6;
+        private ZedGraph.ZedGraphControl zgc1;
     }
 }
 
