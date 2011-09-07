@@ -12,3 +12,5 @@ _Resharper.*
 _UpgradeReport_Files
 UpgradeLog.XML
 setup.exe
+config.status
+config.log
